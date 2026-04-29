@@ -32,9 +32,23 @@ Genevieve Dable-Tupas<sup>1,2,3,4,5<sup>
 
 <sup>7</sup>Davao Doctors Hospital, Davao City, Philippines
 
-# Files in this repository 
+# csv files in this repository 
 
-The attached files contain the QC sample data used in the study. These QC samples were used to assess the analytical stability of the samples throughout the runs and were also used in data processing for drift correction and relative standard deviation (RSD) filtering.
+The attached files contain the QC sample data used in the study. These QC samples were used to assess the analytical stability of the samples throughout the runs and were also used in data processing for drift correction and relative standard deviation (RSD) filtering. The data preprocessing includes sequential application of the following methods/steps:
+
+- Removal of features with excessive missingness
+- Missing value imputation with 1/5 of the smallest positive value per features
+- Signal drift correction and batch effect correction using Quality Control-Robust Spline Correction via the pmp (version 1.22.1) R package
+- Data normalization using median
+- Mathematical transformation via variance stabilizing normalization
+- Data scaling using unit-variance and pareto scaling methods
+- Feature filtering via relative standard deviation (RSD)
+- Feature filtering via removal of features with low variance
+
+
+The **Preprocessed QC (Negative Mode).csv** file contails the preprocessed QC data for the *negative* ionization mode, while the **Preprocessed QC (Positive Mode).csv** file contails the preprocessed QC data for the *positive* ionization mode.
+
+# Questions 
 
 Questions should be directed to the corresponding author:
 
